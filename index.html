@@ -2,16 +2,16 @@
 <html>
 <body>
 <div class="message">loading...</div>
+<iframe id="f" src="about:blank" style="display:none"></iframe>
+<form id="loginform" method="POST" action="http://localhost/login?next=/chat/1" target="f">
+  <input name="username" value="doriangrey">
+  <input name="password" value="doriangrey">
+</form>
 <script>
-fetch('http://localhost/login', {
-  method: 'POST',
-  credentials: 'include',
-  mode: 'no-cors',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'username=doriangrey&password=doriangrey'
-}).then(() => {
-  window.location = 'http://localhost/chat/1';
-});
+  document.getElementById('loginform').submit();
+  setTimeout(() => {
+    window.location = 'http://localhost/chat/1';
+  }, 3000);
 </script>
 </body>
 </html>
