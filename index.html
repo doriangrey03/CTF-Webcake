@@ -2,18 +2,12 @@
 <html>
 <body>
 <div class="message">x</div>
+<form id="f" method="POST" action="http://localhost/login?next=/chat/1" target="_self">
+  <input name="username" value="doriangrey">
+  <input name="password" value="doriangrey">
+</form>
 <script>
-fetch('http://localhost/login', {
-  method: 'POST',
-  credentials: 'include',
-  mode: 'no-cors',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'username=doriangrey&password=doriangrey'
-}).then(() => {
-  setTimeout(() => {
-    window.location = 'http://localhost/chat/1';
-  }, 2000);
-});
+  document.getElementById('f').submit();
 </script>
 </body>
 </html>
