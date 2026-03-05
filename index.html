@@ -6,6 +6,7 @@
 fetch('http://localhost/login', {
   method: 'POST',
   credentials: 'include',
+  mode: 'no-cors',
   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   body: 'username=doriangrey&password=doriangrey'
 }).then(() => {
